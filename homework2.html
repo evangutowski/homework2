@@ -1,3 +1,9 @@
+<!--	Name: Evan Gutowski
+	Course: 235.01
+	HomeWork: #2
+	Git-Hub: https://github.com/evangutowski/homework2
+-->	
+
 <!DOCTYPE html>
 
 <html>
@@ -26,6 +32,8 @@ button.b {color:#F5E6E3;background-color: #5F00CA;margin-right:20px;}
 var v = new Array(0,0,0,0,0);
 var h = new Array(false,false,false,false,false);
 var f = new Array(0,0,0,0,0,0,0);
+var t = new Array(0,0,0,0,0);
+
 
 function roll()
 {
@@ -55,6 +63,17 @@ function src(i)
  d.innerHTML=f[i]*i;
 }
 
+function newGame()
+{
+ for(var i = 0; i<5;i++)
+ {
+ d=document.getElementById("d"+i);
+ d.src="pix/dice0.gif"
+ f[1]=f[2]=f[3]=f[4]=f[5]=f[6]=0;
+ }
+}
+
+
 
 //-->
 </script>
@@ -83,7 +102,8 @@ function src(i)
 <td id="s5" onMouseOver="src(5);" onMouseOut="clr(5)" class="b"> </td>
 <tr> <td class="a"> 6's </td>
 <td id="s6" onMouseOver="src(6);" onMouseOut="clr(6)" class="b"> </td>
-	<td class="c" rowspan="5"> <button class="c">New game</button> </td> </tr>
+	<td class="c" rowspan="5"> <button class="c" onClick="newGame()">New game</button>
+</td> </tr>
 <tr> <td class="a"> 3 of a kind </td> <td class="b"> </td> </tr>
 <tr> <td class="a"> 4 of a kind </td> <td class="b"> </td> </tr>
 <tr> <td class="a"> Yahtzee </td> <td class="b"> </td> </tr>
