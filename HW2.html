@@ -24,40 +24,28 @@ button.b {color:#F5E6E3;background-color: #5F00CA;margin-right:20px;}
 <!--
 
 var v = new Array(0,0,0,0,0);
-var h = new Array(false,false,false,false,false); 
-var f = new Array(0,0,0,0,0,0,0);
+
 
 function roll()
 {
- f[1]=f[2]=f[3]=f[4]=f[5]=f[6]=0;
+ 
  for(var i=0;i<5;i++)
 {
- if(!h[i]){
+ 
  d=document.getElementById("d"+i);
  v[i]=Math.floor(6*Math.random())+1;
  d.src="pix/dice"+v[i]+".gif";
- }
- f[v[i]]++;
+}
 }
 
-}
-
-fucntion hold(i)
+function h0()
 {
- d=document.getElementId("d"+i);
- h[i]=!h[i];
- if(h[i]) {d.src="pix/diceX"+v[i]+.gif";}
- else	  {d.src="pix/dice" +v[i]+.gif";}
+ d=document.getElementBy Id("d0");
+ 
+ d.src="pix/diceX.gif";
+
+
 }
-
-function src(i)
-{
- d=document.getElement("d"+i);
- d.innerHTML=f[i];
-}
-
-
-
 
 
 //-->
@@ -66,11 +54,11 @@ function src(i)
 <h1> Yahtzee </h1>
 
 <div class="a">	
-	<img iD="d0" onClick="hold(0)" src="pix/dice0.gif">
-	<img iD="d1" onClick="hold(1)" src="pix/dice0.gif">
-	<img iD="d2" onClick="hold(2)" src="pix/dice0.gif">
-	<img iD="d3" onClick="hold(3)" src="pix/dice0.gif">
-	<img iD="d4" onClick="hold(4)" src="pix/dice0.gif"> </div>
+	<img iD="d0" onClick="h0()" src="pix/dice0.gif">
+	<img iD="d1" onClick="h1()" src="pix/dice0.gif">
+	<img iD="d2" onClick="h2()" src="pix/dice0.gif">
+	<img iD="d3" onClick="h3()" src="pix/dice0.gif">
+	<img iD="d4" onClick="h4()" src="pix/dice0.gif"> </div>
 <br><br>
 <table class="t" >
 <tr><td class="a"> 1's </td>
