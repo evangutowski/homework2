@@ -34,7 +34,7 @@ var v = new Array(0,0,0,0,0);
 var h = new Array(false,false,false,false,false);
 var f = new Array(0,0,0,0,0,0,0);
 var t = new Array(0,0,0,0,0);
-var b = new Array(0);
+var ttl=0;
 
 function roll()
 {
@@ -77,13 +77,14 @@ function newGame()
 function kind(a)
 {
  d=document.getElementById("n"+a);
- b[0] = 0;
- for (var j=0; j<5; j++)
+ var b = 0;
+ for (var j=1; j<=6; j++)
  {
- if (f[j]=a) {b[0]=f[1]*1+f[2]*2+f[3]*3+f[4]*4+f[5]*5;}
+ if (f[j]==a) {b=f[1]*1+f[2]*2+f[3]*3+f[4]*4+f[5]*5+f[6]*6;}
  }
- d.innerHTML=b[0];
+ d.innerHTML=b;
 }
+
 
 //-->
 </script>
@@ -115,11 +116,11 @@ function kind(a)
 	<td class="c" rowspan="5"> <button class="c" onClick="newGame()">New game</button>
 </td> </tr>
 <tr> <td class="a"> 3 of a kind </td> 
-<td id="n3" onMouseOver="kind(3)" class="b"> </td> </tr>
+<td id="n3" onMouseOver="kind(3);" onMouseOut="klr(3)" class="b"> </td> </tr>
 <tr> <td class="a"> 4 of a kind </td>
-<td id="n4" onMouseOver="kind(4)" class="b"> </td> </tr>
+<td id="n4" onMouseOver="kind(4);" onMouseOut="klr(4)" class="b"> </td> </tr>
 <tr> <td class="a"> Yahtzee </td>
-<td id="n5" onMouseOver="kind(5)" class="b"> </td> </tr>
+<td id="n5" onMouseOver="kind(5);" onMouseOut="klr(5)" class="b"> </td> </tr>
 <tr> <td class="a"> Total </td>
 <td class="b"> </td> </tr>
 
