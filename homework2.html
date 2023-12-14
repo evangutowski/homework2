@@ -35,7 +35,7 @@ var h = new Array(false,false,false,false,false);
 var f = new Array(0,0,0,0,0,0,0);
 var ttl = 0;
 var u = new Array(false,false,false,false,false,false,false,false,false,false);
-var b = new Array(0,0,0,0,0,0);
+var b = 0;
 
 function roll()
 {
@@ -64,6 +64,7 @@ function src(i)
  if (u[i]==false)
  {
  d=document.getElementById("s"+i);
+ b=f[i]*i;
  d.innerHTML=f[i]*i;
  }
 }
@@ -86,6 +87,7 @@ function clr(i)
  if (u[i]==false)
  {
  d=document.getElementById("s"+i);
+ b=0;
  d.innerHTML=0;
  }
 }
@@ -97,9 +99,9 @@ function kind(a,i)
  d=document.getElementById("n"+a);
  for (var j=1; j<=6; j++)
  {
- if (f[j]==a) {b[a]=f[1]*1+f[2]*2+f[3]*3+f[4]*4+f[5]*5+f[6]*6;}
+ if (f[j]==a) {b=f[1]*1+f[2]*2+f[3]*3+f[4]*4+f[5]*5+f[6]*6;}
  }
- d.innerHTML=b[a];
+ d.innerHTML=b;
  }
 }
 
@@ -108,20 +110,20 @@ function klr(a,i)
  if (u[i]==false)
  {
  d=document.getElementById("n"+a);
- b[a]=0;
- d.innerHTML=b[a];
+ b=0;
+ d.innerHTML=b;
  }
 }
 
 function clk(i)
 {
- if (u[i]==false) {u[i] = true;}
+ if (u[i]==false) {ttl+=b; u[i] = true;}
 }
 
 function ttl()
 {
  d.document.getElementById("total");
- d.innerHTML=0;
+ d.innerHTML=ttl;
 }
 
 
@@ -141,7 +143,7 @@ function ttl()
 <br><br>
 <table class="t" >
 <tr> <td class="a"> 1's </td>
-<td id="s1" onMouseOver="src(1);" onMouseOut="clr(1);" onClick="clk(1)" class="b"> </td>
+<td id="s1" onMouseOver="src(1);" onMouseOut="clr(1);" onClick="sClk(1)" class="b"> </td>
 	<td class="c" rowspan="5"> <button class="b" onClick="roll()">Roll</button> 
 </td> </tr>
 <tr> <td class="a"> 2's </td>
