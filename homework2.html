@@ -59,7 +59,7 @@ function hold(i)
  else	  {d.src="pix/dice" +v[i]+".gif";}
 }
 
-function src(i)
+function scr(i)
 {
  if (u[i]==false)
  {
@@ -79,7 +79,19 @@ function newGame()
  h[0]=h[1]=h[2]=h[3]=h[4]=false;
  f[1]=f[2]=f[3]=f[4]=f[5]=f[6]=0;
  u[0]=u[1]=u[2]=u[3]=u[4]=u[5]=u[6]=u[7]=u[8]=false;
- b[3]=b[4]=b[5]=0;
+ b=0;
+ ttl=0;
+ for(var j=1; j<7; j++)
+ {
+ d=document.getElementById("s"+j);
+ d.innerHTML="";
+ }
+ for (var a=3; a<6; a++)
+ {
+ d=document.getElementById("n"+a);
+ d.innerHTML="";
+ }
+ total.innerHTML="";
 }
 
 function clr(i)
@@ -87,8 +99,7 @@ function clr(i)
  if (u[i]==false)
  {
  d=document.getElementById("s"+i);
- b=0;
- d.innerHTML=0;
+ d.innerHTML="";
  }
 }
 
@@ -97,6 +108,7 @@ function kind(a,i)
  if (u[i]==false)
  {
  d=document.getElementById("n"+a);
+ b=0;
  for (var j=1; j<=6; j++)
  {
  if (f[j]==a) {b=f[1]*1+f[2]*2+f[3]*3+f[4]*4+f[5]*5+f[6]*6;}
@@ -110,19 +122,18 @@ function klr(a,i)
  if (u[i]==false)
  {
  d=document.getElementById("n"+a);
- b=0;
- d.innerHTML=b;
+ d.innerHTML="";
  }
 }
 
 function clk(i)
 {
- if (u[i]==false) {ttl+=b; u[i] = true;}
+ if (u[i]==false) {ttl+=b; u[i] = true; ttls();}
 }
 
-function ttl()
+function ttls()
 {
- d.document.getElementById("total");
+ d=document.getElementById("total");
  d.innerHTML=ttl;
 }
 
@@ -143,19 +154,19 @@ function ttl()
 <br><br>
 <table class="t" >
 <tr> <td class="a"> 1's </td>
-<td id="s1" onMouseOver="src(1);" onMouseOut="clr(1);" onClick="sClk(1)" class="b"> </td>
+<td id="s1" onMouseOver="scr(1);" onMouseOut="clr(1);" onClick="clk(1)" class="b"> </td>
 	<td class="c" rowspan="5"> <button class="b" onClick="roll()">Roll</button> 
 </td> </tr>
 <tr> <td class="a"> 2's </td>
-<td id="s2" onMouseOver="src(2);" onMouseOut="clr(2);" onClick="clk(2)" class="b"> </td>
+<td id="s2" onMouseOver="scr(2);" onMouseOut="clr(2);" onClick="clk(2)" class="b"> </td>
 <tr> <td class="a"> 3's </td>
-<td id="s3" onMouseOver="src(3);" onMouseOut="clr(3);" onClick="clk(3)" class="b"> </td>
+<td id="s3" onMouseOver="scr(3);" onMouseOut="clr(3);" onClick="clk(3)" class="b"> </td>
 <tr> <td class="a"> 4's </td>
-<td id="s4" onMouseOver="src(4);" onMouseOut="clr(4);" onClick="clk(4)" class="b"> </td>
+<td id="s4" onMouseOver="scr(4);" onMouseOut="clr(4);" onClick="clk(4)" class="b"> </td>
 <tr> <td class="a"> 5's </td>
-<td id="s5" onMouseOver="src(5);" onMouseOut="clr(5);" onClick="clk(5)" class="b"> </td>
+<td id="s5" onMouseOver="scr(5);" onMouseOut="clr(5);" onClick="clk(5)" class="b"> </td>
 <tr> <td class="a"> 6's </td>
-<td id="s6" onMouseOver="src(6);" onMouseOut="clr(6);" onClick="clk(6)" class="b"> </td>
+<td id="s6" onMouseOver="scr(6);" onMouseOut="clr(6);" onClick="clk(6)" class="b"> </td>
 	<td class="c" rowspan="5"> <button class="c" onClick="newGame()">New game</button>
 </td> </tr>
 <tr> <td class="a"> 3 of a kind </td> 
@@ -165,7 +176,7 @@ function ttl()
 <tr> <td class="a"> Yahtzee </td>
 <td id="n5" onMouseOver="kind(5,9);" onMouseOut="klr(5,9);" onClick="clk(9)" class="b"> </td> </tr>
 <tr> <td class="a"> Total </td>
-<td id="total" onMouseOver="ttl()" class="b"> </td> </tr>
+<td id="total" class="b"> </td> </tr>
 
 </table>
 
